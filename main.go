@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 	}
 	problems := parseLines(lines)
 	//curly {} braces in Go means struct, no object like in JS
+	correct := 0
 	for index, prob := range problems {
 		fmt.Printf("Problem #%d: %s = \n", index+1, prob.question)
 		var userAnswer string
@@ -28,8 +30,10 @@ func main() {
 		//check if answer is correct
 		if userAnswer == prob.answer {
 			fmt.Println("correct!")
+			correct++
 		}
 	}
+	fmt.Printf("You answered correctly %d out of %d \n", correct, len(problems))
 }
 
 func parseLines(lines [][]string) []problem {
@@ -39,7 +43,7 @@ func parseLines(lines [][]string) []problem {
 	for i, line := range lines {
 		ret[i] = problem{
 			question: line[0],
-			answer:   line[1],
+			answer:   strings.TrimSpace(line[1]),
 		}
 	}
 	return ret
