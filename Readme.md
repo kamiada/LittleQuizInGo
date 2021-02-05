@@ -5,4 +5,4 @@ In order to run Go first:
 build package (?) of your code will appear in the folder with the name of it. In my case that's Go_quizGame, because I love long names.
 
 In order to run this package type in the consol: 
-`` go build . && ./Go_quizGame -csv=problems.csv``
+`` go build . && ./SimpleMathQuiz -csv=problems.csv``
